@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Calendar, Clock3, Sparkles, Tag } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -213,13 +213,28 @@ const BlogArticle = ({ post, relatedPosts }: { post: BlogPost; relatedPosts: Blo
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-orange/[0.08] px-3 py-1 text-[11px] font-semibold text-orange">
+                    <Link
+                      key={tag}
+                      to={`/blogs?tag=${encodeURIComponent(tag)}`}
+                      className="rounded-full bg-orange/[0.08] px-3 py-1 text-[11px] font-semibold text-orange no-underline hover:bg-orange/[0.18] transition-colors"
+                    >
                       #{tag.replace(/\s+/g, "-")}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
 
+
+              <div className="rounded-[28px] border border-w-border/60 bg-background p-5 shadow-wishly-card">
+                <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-orange">Written by</div>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-orange/10 border border-orange/20 flex items-center justify-center text-orange font-extrabold text-sm shrink-0">W</div>
+                  <div>
+                    <div className="text-[13px] font-bold leading-tight text-ink">Wishly Team</div>
+                    <p className="mt-0.5 text-[11px] leading-relaxed text-mid">Restaurant operators and marketing specialists across India. <Link to="/about" className="text-orange no-underline hover:underline">About us →</Link></p>
+                  </div>
+                </div>
+              </div>
 
               <div className="rounded-[28px] border border-orange/15 bg-orange/[0.05] p-5 shadow-wishly-card">
                 <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange">Ready to act on this?</div>
@@ -270,12 +285,24 @@ const BlogArticle = ({ post, relatedPosts }: { post: BlogPost; relatedPosts: Blo
 );
 
 const BlogListing = ({ posts }: { posts: BlogPost[] }) => {
+  const [searchParams] = useSearchParams();
+  const activeTag = searchParams.get("tag");
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = useMemo(() => ["All", ...Array.from(new Set(posts.map((post) => post.category)))], [posts]);
-  const featuredPost = posts[0];
-  const filteredPosts = activeCategory === "All"
-    ? posts.slice(1)
-    : posts.filter((post) => post.category === activeCategory && post.slug !== featuredPost?.slug);
+  const featuredPost = activeTag ? null : posts[0];
+  const filteredPosts = useMemo(() => {
+    if (activeTag) {
+      return posts.filter((post) =>
+        post.tags.some((t) =>
+          t === activeTag ||
+          t.toLowerCase().replace(/\s+/g, "-") === activeTag.toLowerCase().replace(/\s+/g, "-")
+        )
+      );
+    }
+    return activeCategory === "All"
+      ? posts.slice(1)
+      : posts.filter((post) => post.category === activeCategory && post.slug !== posts[0]?.slug);
+  }, [posts, activeTag, activeCategory]);
 
   return (
     <>
@@ -428,6 +455,13 @@ const BlogListing = ({ posts }: { posts: BlogPost[] }) => {
 
       <section className="pb-24">
         <div className="container">
+          {activeTag && (
+            <div className="mb-8 flex items-center gap-3 rounded-2xl border border-orange/20 bg-orange/[0.05] px-5 py-3">
+              <Tag size={14} className="text-orange shrink-0" />
+              <span className="text-[13px] text-mid">Filtering by tag: <strong className="text-ink">{activeTag}</strong></span>
+              <Link to="/blogs" className="ml-auto text-[12px] font-semibold text-orange no-underline hover:underline">Clear ×</Link>
+            </div>
+          )}
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {filteredPosts.map((post, index) => (
               <AnimatedSection key={post.slug} delay={index * 0.06} direction="scale">
