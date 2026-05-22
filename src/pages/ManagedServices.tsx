@@ -719,33 +719,16 @@ export default function ManagedServices() {
       {/* ── HEADER ── */}
       <header className="fixed top-0 left-0 right-0 z-50 h-[60px] glass shadow-wishly-sm">
         <div className="container h-full flex items-center justify-between">
-          <Link to="/" className="no-underline flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0">
             <img src={wishlyLogo} alt="" className="h-10 w-10 object-contain" />
             <span className="font-display text-[18px] font-extrabold tracking-tight text-ink">Wishly</span>
-          </Link>
-
-          {/* Sub-nav links */}
-          <div className="hidden md:flex items-center gap-6">
-            {[
-              { label: "How it works", href: "#how-it-works" },
-              { label: "Portfolio", href: "#portfolio" },
-              { label: "Pricing", href: "#pricing" },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-[13px] font-medium text-mid hover:text-ink no-underline transition-colors duration-200"
-              >
-                {item.label}
-              </a>
-            ))}
           </div>
 
           <a
             href="#contact"
             className="bg-orange text-white text-[13px] font-semibold px-4 py-2 rounded-full no-underline hover:bg-orange-dark transition-colors duration-200"
           >
-            Contact us
+            Get free content →
           </a>
         </div>
       </header>
@@ -909,6 +892,7 @@ export default function ManagedServices() {
                   {isRestaurants ? "Get free content for your restaurant" : "Get free content for your brand"}
                 </span>
                 <p className="text-[12px] text-white/35">{isRestaurants ? "Drop your details - we'll create a sample post for your restaurant." : "Drop your details - we'll create sample posts for your business."}</p>
+                <p className="text-[11px] text-white/25 mt-2">Managed plans from <span className="text-white/55 font-semibold">₹14,999/month</span> · No lock-in · Cancel anytime</p>
               </div>
               <LeadForm source={isRestaurants ? "restaurant" : undefined} />
             </div>
@@ -1486,6 +1470,19 @@ export default function ManagedServices() {
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     Chat on WhatsApp
+                  </a>
+                </div>
+
+                {/* Secondary low-commitment CTA */}
+                <div className="mt-4 text-center">
+                  <span className="text-[11px] text-white/20">Not ready to commit yet?</span>
+                  <a
+                    href={`${WHATSAPP_URL}?text=${encodeURIComponent("Hi Wishly! Can you show me a sample post for my restaurant before I sign up?")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mt-1 text-[12px] font-semibold text-orange/70 no-underline hover:text-orange transition-colors"
+                  >
+                    See a sample post for my restaurant first →
                   </a>
                 </div>
               </div>
