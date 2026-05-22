@@ -650,6 +650,13 @@ export default function ManagedServices() {
           <meta property="og:description" content="AI-powered social media marketing and paid ads for restaurants, cafes, and food businesses in Hyderabad. Consistent content, faster turnaround, zero effort from your side." />
           <meta property="og:url" content="https://wishlyai.in/managed-services/restaurants" />
           <link rel="canonical" href="https://wishlyai.in/managed-services/restaurants" />
+          <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Digital Marketing Agency for Restaurants | Wishly AI Hyderabad" />
+          <meta name="twitter:description" content="AI-powered social media marketing and paid ads for restaurants, cafes, and food businesses in Hyderabad. Consistent content, faster turnaround, zero effort from your side." />
+          <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
           <script type="application/ld+json">{JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
@@ -671,6 +678,13 @@ export default function ManagedServices() {
           <meta property="og:description" content="AI-powered social media management for businesses in Hyderabad. Consistent content, faster turnaround, zero effort from your side." />
           <meta property="og:url" content="https://wishlyai.in/managed-services" />
           <link rel="canonical" href="https://wishlyai.in/managed-services" />
+          <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Best Social Media Marketing Agency in Hyderabad | Wishly AI" />
+          <meta name="twitter:description" content="AI-powered social media management for businesses in Hyderabad. Consistent content, faster turnaround, zero effort from your side." />
+          <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
           <script type="application/ld+json">{JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",

@@ -21,6 +21,13 @@ const Terms = () => {
         <meta property="og:title" content="Terms of Service | Wishly AI" />
         <meta property="og:url" content="https://wishlyai.in/terms" />
         <link rel="canonical" href="https://wishlyai.in/terms" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Terms of Service | Wishly AI" />
+        <meta name="twitter:description" content="Read Wishly's terms of service, privacy policy, and usage guidelines for the AI-powered restaurant social media platform." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 

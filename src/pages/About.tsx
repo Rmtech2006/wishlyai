@@ -20,6 +20,13 @@ const About = () => {
         <meta property="og:description" content="Wishly is an AI-powered social media tool built specifically for Indian restaurants. Our mission: make it easy to stay consistently active online without hiring a designer." />
         <meta property="og:url" content="https://wishlyai.in/about" />
         <link rel="canonical" href="https://wishlyai.in/about" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Wishly — Built for Indian Restaurants | Wishly AI" />
+        <meta name="twitter:description" content="Wishly is an AI-powered social media tool built specifically for Indian restaurants. Our mission: make it easy to stay consistently active online without hiring a designer." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 

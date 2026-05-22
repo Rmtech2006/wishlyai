@@ -21,9 +21,47 @@ const BlogArticle = ({ post, relatedPosts }: { post: BlogPost; relatedPosts: Blo
       <meta property="og:description" content={post.seoDescription || post.excerpt} />
       <meta property="og:url" content={`https://wishlyai.in/blogs/${post.slug}`} />
       <meta property="og:image" content={resolveBlogImage(post)} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:type" content="article" />
       <meta property="article:published_time" content={post.publishedAt} />
+      <meta property="article:author" content="Wishly Team" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={post.seoTitle || post.title} />
+      <meta name="twitter:description" content={post.seoDescription || post.excerpt} />
+      <meta name="twitter:image" content={resolveBlogImage(post)} />
       <link rel="canonical" href={`https://wishlyai.in/blogs/${post.slug}`} />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": post.seoTitle || post.title,
+        "datePublished": post.publishedAt,
+        "dateModified": post.publishedAt,
+        "author": { "@type": "Organization", "name": "Wishly Team", "url": "https://wishlyai.in/about" },
+        "publisher": { "@type": "Organization", "name": "WishlyAI", "logo": { "@type": "ImageObject", "url": "https://wishlyai.in/favicon.png" } },
+        "image": resolveBlogImage(post),
+        "url": `https://wishlyai.in/blogs/${post.slug}`,
+        "description": post.seoDescription || post.excerpt,
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://wishlyai.in/blogs/${post.slug}` }
+      })}</script>
+      {post.faqs?.length ? <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": post.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+        }))
+      })}</script> : null}
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wishlyai.in" },
+          { "@type": "ListItem", "position": 2, "name": "Blogs", "item": "https://wishlyai.in/blogs" },
+          { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://wishlyai.in/blogs/${post.slug}` }
+        ]
+      })}</script>
     </Helmet>
     <section className="relative overflow-hidden pt-28 pb-12 lg:pb-16">
       <div className="absolute inset-0">
@@ -182,12 +220,6 @@ const BlogArticle = ({ post, relatedPosts }: { post: BlogPost; relatedPosts: Blo
                 </div>
               </div>
 
-              {post.keyword ? (
-                <div className="rounded-[28px] border border-w-border/60 bg-background p-5 shadow-wishly-card">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange">Primary keyword</div>
-                  <p className="mt-3 text-[14px] leading-relaxed text-mid">{post.keyword}</p>
-                </div>
-              ) : null}
 
               <div className="rounded-[28px] border border-orange/15 bg-orange/[0.05] p-5 shadow-wishly-card">
                 <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange">Ready to act on this?</div>
@@ -253,6 +285,13 @@ const BlogListing = ({ posts }: { posts: BlogPost[] }) => {
         <meta property="og:title" content="Restaurant Marketing Blog — Tips for Indian Restaurant Owners | Wishly AI" />
         <meta property="og:description" content="Expert guides on Zomato, FSSAI, Instagram, WhatsApp marketing, and restaurant growth strategies for Indian restaurant owners." />
         <meta property="og:url" content="https://wishlyai.in/blogs" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Restaurant Marketing Blog — Tips for Indian Restaurant Owners | Wishly AI" />
+        <meta name="twitter:description" content="Expert guides on Zomato, FSSAI, Instagram, WhatsApp marketing, and restaurant growth strategies for Indian restaurant owners." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
         <link rel="canonical" href="https://wishlyai.in/blogs" />
       </Helmet>
       <section className="relative overflow-hidden pt-28 pb-12 min-h-[560px] lg:min-h-[620px]">

@@ -275,6 +275,13 @@ const HowItWorks = () => {
         <meta property="og:description" content="Automatic signals from Google Business. AI-generated posts for festivals, reviews, sports nights, and offers. Ready to post in under 20 seconds." />
         <meta property="og:url" content="https://wishlyai.in/how-it-works" />
         <link rel="canonical" href="https://wishlyai.in/how-it-works" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="How Wishly Works — Restaurant Social Media Automation | Wishly AI" />
+        <meta name="twitter:description" content="Automatic signals from Google Business. AI-generated posts for festivals, reviews, sports nights, and offers. Ready to post in under 20 seconds." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 

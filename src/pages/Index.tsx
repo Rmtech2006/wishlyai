@@ -148,6 +148,13 @@ const Index = () => {
         <meta property="og:description" content="Wishly builds daily social media promotions for restaurants in India. Festival posts, review milestones, sports nights, and offers — ready to post in under 20 seconds." />
         <meta property="og:url" content="https://wishlyai.in/" />
         <link rel="canonical" href="https://wishlyai.in/" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wishly — AI Social Media for Restaurants | Daily Promotions. Zero Effort." />
+        <meta name="twitter:description" content="Wishly builds daily social media promotions for restaurants in India. Festival posts, review milestones, sports nights, and offers — ready to post in under 20 seconds." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       {/* Full-screen regen popup */}
       {showRegenPopup && (

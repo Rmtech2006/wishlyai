@@ -105,6 +105,13 @@ const Gallery = () => {
         <meta property="og:description" content="Browse real social media posts Wishly has created for restaurants — festivals, review milestones, sports nights, deals, and daily promotions. All in under 20 seconds." />
         <meta property="og:url" content="https://wishlyai.in/gallery" />
         <link rel="canonical" href="https://wishlyai.in/gallery" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Gallery — Real Restaurant Posts Built by Wishly AI" />
+        <meta name="twitter:description" content="Browse real social media posts Wishly has created for restaurants — festivals, review milestones, sports nights, deals, and daily promotions. All in under 20 seconds." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 

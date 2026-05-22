@@ -131,6 +131,13 @@ const Pricing = () => {
         <meta property="og:description" content="Simple, transparent pricing for Indian restaurant owners. Start free and scale with Wishly's AI-powered social media automation." />
         <meta property="og:url" content="https://wishlyai.in/pricing" />
         <link rel="canonical" href="https://wishlyai.in/pricing" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Wishly Pricing — Affordable Social Media Plans for Restaurants" />
+        <meta name="twitter:description" content="Simple, transparent pricing for Indian restaurant owners. Start free and scale with Wishly's AI-powered social media automation." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 

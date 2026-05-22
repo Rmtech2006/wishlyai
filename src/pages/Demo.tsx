@@ -32,6 +32,13 @@ const Demo = () => {
         <meta property="og:description" content="Book a free 15-minute demo and see how Wishly creates restaurant social media content in under 20 seconds. No commitment required." />
         <meta property="og:url" content="https://wishlyai.in/demo" />
         <link rel="canonical" href="https://wishlyai.in/demo" />
+        <meta property="og:image" content="https://wishlyai.in/hero-download-1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Book a Free Demo — See Wishly in Action | Wishly AI" />
+        <meta name="twitter:description" content="Book a free 15-minute demo and see how Wishly creates restaurant social media content in under 20 seconds. No commitment required." />
+        <meta name="twitter:image" content="https://wishlyai.in/hero-download-1.jpg" />
       </Helmet>
       <Navbar />
 
