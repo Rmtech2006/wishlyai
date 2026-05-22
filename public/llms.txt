@@ -1,0 +1,42 @@
+# WishlyAI
+
+WishlyAI is an AI-powered social media content generation platform for restaurants in India.
+
+## What it does
+
+Creates ready-to-post Instagram and WhatsApp content for restaurant owners — festival posts, review milestone celebrations, daily offers, sports-night promos, and business updates — in under 30 seconds, directly from the restaurant's Google Business Profile data.
+
+## Key capabilities
+
+- Generates branded social media images and captions automatically
+- Detects upcoming festivals, sports events, and review milestones
+- Connects to Google Business Profile for restaurant-specific personalisation
+- Produces content for Instagram, WhatsApp, and Facebook
+- Managed social media service available for restaurants that want fully done-for-you posting
+
+## Target users
+
+Restaurant founders, food business owners, cloud kitchen operators, and restaurant chains in India.
+
+## Markets
+
+Primary: India (restaurants and food businesses)
+Secondary: International (English-language restaurant markets)
+
+## Core phrase
+
+AI content generation for restaurant owners
+
+## URLs
+
+Website: https://wishlyai.in
+App: https://app.wishlyai.in
+Demo: https://wishlyai.in/demo
+Blog: https://wishlyai.in/blogs
+Managed services: https://wishlyai.in/managed-services
+Pricing: https://wishlyai.in/pricing
+
+## Company
+
+WishlyAI is built by AI Plus Labs.
+Contact: wishlyai@aipluslabs.com
