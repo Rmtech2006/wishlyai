@@ -1,7 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -14,14 +13,9 @@ import Blogs from "./pages/Blogs";
 import Demo from "./pages/Demo";
 import Terms from "./pages/Terms";
 import Gallery from "./pages/Gallery";
+import Video from "./pages/Video";
 import ManagedServices from "./pages/ManagedServices";
 import NotFound from "./pages/NotFound";
-import reel1 from "@/assets/reel-1.mp4";
-import reel2 from "@/assets/reel-2.mp4";
-import reel3 from "@/assets/reel-3.mp4";
-import reel4 from "@/assets/reel-4.mp4";
-
-const queryClient = new QueryClient();
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,14 +23,23 @@ const ScrollToTop = () => {
   return null;
 };
 
-const reels = [reel1, reel2, reel3, reel4];
-
 const VideoPopup = () => {
   const { pathname } = useLocation();
   const [show, setShow] = useState(false);
   const [reelIndex, setReelIndex] = useState(0);
   const interactionCount = useRef(0);
   const fired = useRef(false);
+  const reels = useRef<string[]>([]);
+
+  useEffect(() => {
+    // Lazy-load reel URLs so the MP4s aren't referenced until VideoPopup mounts
+    Promise.all([
+      import("@/assets/reel-1.mp4"),
+      import("@/assets/reel-2.mp4"),
+      import("@/assets/reel-3.mp4"),
+      import("@/assets/reel-4.mp4"),
+    ]).then((mods) => { reels.current = mods.map((m) => m.default); });
+  }, []);
 
   useEffect(() => {
     if (pathname.startsWith("/managed-services")) return;
@@ -65,7 +68,7 @@ const VideoPopup = () => {
       window.removeEventListener("scroll", onScroll);
       if (scrollTimer) clearTimeout(scrollTimer);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <AnimatePresence>
@@ -108,7 +111,7 @@ const VideoPopup = () => {
             <div className="relative w-full bg-black" style={{ height: "320px" }}>
               <video
                 key={reelIndex}
-                src={reels[reelIndex]}
+                src={reels.current[reelIndex]}
                 autoPlay
                 muted
                 loop
@@ -120,7 +123,7 @@ const VideoPopup = () => {
             {/* Footer — fixed height */}
             <div className="px-4 py-3 flex items-center justify-between gap-2">
               <div className="flex items-center gap-1.5">
-                {reels.map((_, i) => (
+                {reels.current.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setReelIndex(i)}
@@ -132,7 +135,7 @@ const VideoPopup = () => {
                   >{i + 1}</button>
                 ))}
                 <motion.button
-                  onClick={() => setReelIndex((reelIndex + 1) % reels.length)}
+                  onClick={() => setReelIndex((reelIndex + 1) % (reels.current.length || 4))}
                   animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
                   className="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-white/[0.06] text-white/60 hover:text-white hover:border-white/40 cursor-pointer transition-all text-[12px]"
@@ -155,30 +158,28 @@ const VideoPopup = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <ScrollToTop />
-        <VideoPopup />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:slug" element={<Blogs />} />
-          <Route path="/demo" element={<Demo />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/managed-services" element={<ManagedServices />} />
-          <Route path="/managed-services/restaurants" element={<ManagedServices />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <TooltipProvider>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
+      <VideoPopup />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<Blogs />} />
+        <Route path="/demo" element={<Demo />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/video" element={<Video />} />
+        <Route path="/managed-services" element={<ManagedServices />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  </TooltipProvider>
 );
 
 export default App;

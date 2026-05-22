@@ -27,12 +27,6 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://wishlyai.in/managed-services/restaurants</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
     <loc>https://wishlyai.in/demo</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -43,6 +37,12 @@
     <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/video</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/about</loc>
@@ -66,6 +66,78 @@
   </url>
 
   <!-- Blog posts -->
+  <url>
+    <loc>https://wishlyai.in/blogs/quick-commerce-impact-restaurant-delivery-india</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/restaurant-funding-india-2026-kliff-ventures</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/food-inflation-restaurant-india-2026</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/restaurant-expansion-tier-2-cities-india</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/rapido-ownly-zero-commission-food-delivery-india</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/lpg-price-hike-restaurant-menu-pricing-india-2026</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/zomato-customer-data-sharing-restaurants-india</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/flipkart-food-delivery-india-ondc-restaurants-2026</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/ondc-restaurant-india-2026</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/google-business-profile-restaurant-india-2026</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/restaurant-menu-repricing-india-2026</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wishlyai.in/blogs/filter-coffee-cafe-india-2026</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://wishlyai.in/blogs/fssai-renewal-process</loc>
     <lastmod>2026-05-13</lastmod>
@@ -116,37 +188,37 @@
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/get-more-customers-restaurant-india</loc>
-    <lastmod>2026-05-08</lastmod>
+    <lastmod>2025-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/automate-restaurant-social-media-india</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/restaurant-instagram-marketing-india</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2025-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/whatsapp-marketing-restaurant-india</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2025-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/daily-restaurant-promotion-ideas-india</loc>
-    <lastmod>2026-05-04</lastmod>
+    <lastmod>2025-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wishlyai.in/blogs/restaurant-google-business-profile-india</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2025-05-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

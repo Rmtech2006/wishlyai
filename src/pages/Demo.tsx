@@ -7,20 +7,50 @@ import Footer from "@/components/Footer";
 import Eyebrow from "@/components/Eyebrow";
 import sectionBg from "@/assets/section-bg.jpg";
 
+// Set VITE_DEMO_FORM_URL in your Vercel env vars (e.g. a Formspree endpoint like https://formspree.io/f/<id>).
+// If unset, submissions fall back to a pre-filled mailto so no lead is lost.
+const FORM_URL = import.meta.env.VITE_DEMO_FORM_URL as string | undefined;
+
 const Demo = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formLoading, setFormLoading] = useState(false);
+  const [formError, setFormError] = useState("");
   const [form, setForm] = useState({ fname: "", lname: "", email: "", restaurant: "", type: "", instagram: "", notes: "" });
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    setFormError("");
     if (!form.fname || !form.email || !form.restaurant) {
-      alert("Please fill in your name, email, and restaurant name.");
+      setFormError("Please fill in your name, email, and restaurant name.");
       return;
     }
     if (!form.email.includes("@")) {
-      alert("Please enter a valid email address.");
+      setFormError("Please enter a valid email address.");
       return;
     }
-    setSubmitted(true);
+    setFormLoading(true);
+    try {
+      if (!FORM_URL) throw new Error("no endpoint");
+      const res = await fetch(FORM_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...form, _subject: `Demo Request — ${form.restaurant}` }),
+      });
+      if (!res.ok) throw new Error("submit failed");
+      setSubmitted(true);
+    } catch {
+      const body = [
+        `Name: ${form.fname} ${form.lname}`,
+        `Email: ${form.email}`,
+        `Restaurant: ${form.restaurant}`,
+        `Type: ${form.type}`,
+        `Instagram: ${form.instagram}`,
+        `Notes: ${form.notes}`,
+      ].join("\n");
+      window.location.href = `mailto:wishlyai@aipluslabs.com?subject=${encodeURIComponent(`Demo Request — ${form.restaurant}`)}&body=${encodeURIComponent(body)}`;
+      setSubmitted(true);
+    } finally {
+      setFormLoading(false);
+    }
   };
 
   return (
@@ -149,11 +179,15 @@ const Demo = () => {
                       <textarea className="w-full border border-white/[0.1] rounded-xl px-3.5 py-[11px] text-sm font-body text-primary-foreground bg-white/[0.04] outline-none focus:border-orange transition-colors resize-y min-h-[80px] leading-relaxed placeholder:text-white/20" placeholder="e.g. Mother's Day promotion, review milestone post..." value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} />
                     </div>
 
+                    {formError && (
+                      <p className="text-[12px] text-red-400 mb-2 leading-relaxed">{formError}</p>
+                    )}
                     <button
                       onClick={handleSubmit}
-                      className="w-full bg-orange text-primary-foreground border-none py-4 rounded-full text-[15px] font-bold cursor-pointer font-body shadow-[0_4px_30px_hsla(17,82%,45%,0.4)] hover:bg-orange-dark hover:-translate-y-px transition-all mt-2"
+                      disabled={formLoading}
+                      className="w-full bg-orange text-primary-foreground border-none py-4 rounded-full text-[15px] font-bold cursor-pointer font-body shadow-[0_4px_30px_hsla(17,82%,45%,0.4)] hover:bg-orange-dark hover:-translate-y-px transition-all mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Book my free demo →
+                      {formLoading ? "Sending…" : "Book my free demo →"}
                     </button>
                     <p className="text-[11.5px] text-white/25 text-center mt-3 leading-relaxed">No commitment, no credit card, no pressure.</p>
 

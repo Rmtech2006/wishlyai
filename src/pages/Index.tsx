@@ -101,10 +101,19 @@ const Index = () => {
     }, 3000);
   };
 
-  // Credits bar
+  // Credits bar — timer persists across refreshes within the same session
   const [showBar, setShowBar] = useState(false);
   const [barDismissed, setBarDismissed] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(5 * 60); // 5 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState<number>(() => {
+    try {
+      const expiry = sessionStorage.getItem("wishly_bar_expiry");
+      if (expiry) {
+        const remaining = Math.round((parseInt(expiry, 10) - Date.now()) / 1000);
+        return remaining > 0 ? remaining : 0;
+      }
+    } catch {}
+    return 5 * 60;
+  });
   const fixSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -118,6 +127,11 @@ const Index = () => {
 
   useEffect(() => {
     if (!showBar) return;
+    try {
+      if (!sessionStorage.getItem("wishly_bar_expiry")) {
+        sessionStorage.setItem("wishly_bar_expiry", String(Date.now() + timeLeft * 1000));
+      }
+    } catch {}
     if (timeLeft <= 0) { setShowBar(false); setBarDismissed(true); return; }
     const t = setInterval(() => setTimeLeft(p => {
       if (p <= 1) { setShowBar(false); setBarDismissed(true); }
@@ -190,7 +204,7 @@ const Index = () => {
             >
               Start posting for free. 60 seconds →
             </a>
-            <div className="text-[11px] text-white/20">Only 8 beta spots left · No credit card needed</div>
+            <div className="text-[11px] text-white/20">Free 7-day trial · No credit card needed</div>
           </motion.div>
         </motion.div>
       )}
@@ -214,7 +228,7 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Eyebrow variant="dark">Trusted by 100+ restaurants</Eyebrow>
+              <Eyebrow variant="dark">For restaurant owners across India</Eyebrow>
 
               <h1 className="text-[clamp(40px,5vw,70px)] font-extrabold leading-[0.95] tracking-[-0.045em] text-primary-foreground mb-4">
                 Your restaurant<br />is full of stories.<br />
@@ -259,7 +273,7 @@ const Index = () => {
                     <div className="w-[9px] h-[9px] rounded-full bg-[#FEBC2E]" />
                     <div className="w-[9px] h-[9px] rounded-full bg-[#28C840]" />
                   </div>
-                  <span className="text-[10px] text-white/20 font-medium tracking-wide">app.wishlyai.in · dashboard</span>
+                  <span className="text-[10px] text-white/20 font-medium tracking-wide">app.wishlyai.in · example</span>
                   <div className="w-[40px]" />
                 </div>
 
@@ -373,21 +387,21 @@ const Index = () => {
               {
                 stat: "3×",
                 label: "More Tables Booked",
-                sub: "Restaurants that post 4× a week see 3× more direct reservations vs silent accounts.",
+                sub: "Restaurants that post 4× a week see 3× more direct reservations vs silent accounts. Based on social media engagement research.",
                 color: "orange",
                 icon: "🍽️",
               },
               {
                 stat: "45%",
                 label: "Higher Engagement",
-                sub: "Promotional posts with a specific offer get 45% more saves, shares, and clicks than generic food photos.",
+                sub: "Promotional posts with a specific offer get 45% more saves, shares, and clicks than generic food photos. Based on Instagram engagement benchmarks.",
                 color: "green",
                 icon: "📈",
               },
               {
                 stat: "2.5×",
                 label: "Better Click Rate",
-                sub: "Posts built around festivals and occasions outperform generic food photos 2.5× on click-through rate.",
+                sub: "Posts built around festivals and occasions outperform generic food photos 2.5× on click-through rate. Based on seasonal campaign performance data.",
                 color: "gold",
                 icon: "🎯",
               },
@@ -757,18 +771,18 @@ const Index = () => {
                 ))}
               </div>
               <div className="mt-8 p-4 glass-dark rounded-xl">
-                <div className="text-[11px] text-white/30 mb-2">Beta spots remaining</div>
+                <div className="text-[11px] text-white/30 mb-2">Now in beta · Limited spots</div>
                 <div className="flex items-center gap-3">
                   <div className="flex-1 h-[5px] bg-white/[0.06] rounded-full overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-orange to-gold rounded-full"
                       initial={{ width: 0 }}
-                      whileInView={{ width: "92%" }}
+                      whileInView={{ width: "70%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.2, ease: "easeOut" }}
                     />
                   </div>
-                  <div className="text-xs font-bold text-primary-foreground whitespace-nowrap">8 of 100 left</div>
+                  <div className="text-xs font-bold text-primary-foreground whitespace-nowrap">Early access</div>
                 </div>
               </div>
             </div>

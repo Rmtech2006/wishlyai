@@ -64,7 +64,7 @@ const PortfolioStrip = () => {
             onClick={() => setLightbox(null)}
           >
             <motion.img
-              src={lightbox} alt=""
+              src={lightbox} alt="Restaurant post example by Wishly"
               initial={{ scale: 0.88, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.88, opacity: 0 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               className="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl object-contain"

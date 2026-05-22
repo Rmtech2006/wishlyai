@@ -150,7 +150,7 @@ const Pricing = () => {
             {/* Urgency bar */}
             <div className="inline-flex items-center gap-2 bg-orange/15 border border-orange/30 text-orange text-[12px] font-bold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
               <Zap size={11} className="fill-orange" />
-              Only 8 beta spots remaining at this price
+              Early access pricing — limited time
             </div>
             <h1 className="text-[clamp(36px,5vw,64px)] font-extrabold leading-[1.05] tracking-tight text-primary-foreground mb-6">
               Every day you don't post,<br /><span style={{background: "linear-gradient(90deg, #F5C842, #FFE566, #D4A017, #FFD700, #F5C842)", backgroundSize: "300% 100%", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", animation: "gradient-shift 3s ease-in-out infinite"}} className="italic font-normal">a competitor fills your table.</span>
@@ -316,7 +316,7 @@ const Pricing = () => {
                 {/* CTA */}
                 <div className="mt-2">
                   <a
-                    href="https://app.wishlyai.in/login"
+                    href={plan.name === "Scale" ? "mailto:wishlyai@aipluslabs.com?subject=Wishly+Scale+Plan+Enquiry" : "https://app.wishlyai.in/login"}
                     className={`block w-full text-center py-3.5 rounded-full text-[14px] font-bold no-underline transition-all duration-300 ${
                       plan.featured
                         ? "bg-orange text-primary-foreground shadow-[0_4px_24px_hsla(17,82%,45%,0.4)] hover:bg-orange-dark hover:shadow-[0_8px_32px_hsla(17,82%,45%,0.5)] hover:-translate-y-px"
@@ -483,7 +483,7 @@ const Pricing = () => {
         <div className="container relative text-center">
           <AnimatedSection>
             <div className="inline-flex items-center gap-2 bg-orange/15 border border-orange/30 text-orange text-[12px] font-bold px-4 py-1.5 rounded-full mb-6">
-              <Zap size={11} className="fill-orange" /> 8 beta spots left at founder pricing
+              <Zap size={11} className="fill-orange" /> Early access — founder pricing available now
             </div>
             <h2 className="font-display text-[clamp(30px,4.5vw,54px)] font-extrabold text-primary-foreground tracking-tight leading-[1.08] mb-4">
               Your next Diwali post<br />is already waiting for you.
