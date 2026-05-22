@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 import wishlyLogo from "@/assets/wishly-logo.png";
 
 const Footer = () => {
@@ -54,10 +54,9 @@ const Footer = () => {
               </a>
               <div className="flex items-center gap-3 mt-1">
                 {[
-                  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-                  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-                  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-                  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                  { icon: Facebook, href: "https://www.facebook.com/wishlyaiofficial", label: "Facebook" },
+                  { icon: Instagram, href: "https://www.instagram.com/wishlyai/", label: "Instagram" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/company/wishly-ai/", label: "LinkedIn" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
