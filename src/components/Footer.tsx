@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import wishlyLogo from "@/assets/wishly-logo.png";
 
 const Footer = () => {
@@ -57,6 +57,7 @@ const Footer = () => {
                   { icon: Facebook, href: "https://www.facebook.com/wishlyaiofficial", label: "Facebook" },
                   { icon: Instagram, href: "https://www.instagram.com/wishlyai/", label: "Instagram" },
                   { icon: Linkedin, href: "https://www.linkedin.com/company/wishly-ai/", label: "LinkedIn" },
+                  { icon: Twitter, href: "https://x.com/Wishly_ai", label: "Twitter" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
