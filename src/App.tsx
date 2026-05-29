@@ -15,6 +15,7 @@ import Terms from "./pages/Terms";
 import Gallery from "./pages/Gallery";
 import Video from "./pages/Video";
 import ManagedServices from "./pages/ManagedServices";
+import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
 const ScrollToTop = () => {
@@ -176,6 +177,7 @@ const App = () => (
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/video" element={<Video />} />
         <Route path="/managed-services" element={<ManagedServices />} />
+        <Route path="/sitemap" element={<Sitemap />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
