@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Home, Zap, BadgeDollarSign, Star, Play, Image, BookOpen, Info, FileText, BriefcaseBusiness } from "lucide-react";
+import { Home, Zap, BadgeDollarSign, Play, Image, BookOpen, Info, FileText, BriefcaseBusiness } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAllBlogPosts } from "@/lib/blogs";
@@ -45,21 +45,21 @@ const Sitemap = () => {
       <main className="pt-28 pb-20 max-w-6xl mx-auto px-6 lg:px-12">
         {/* Page header */}
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-orange mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange-light px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-orange mb-4">
             Site Directory
           </div>
-          <h1 className="text-[clamp(28px,3.5vw,48px)] font-extrabold leading-tight tracking-tight text-primary-foreground mb-3">
+          <h1 className="font-display text-[clamp(28px,3.5vw,48px)] font-extrabold leading-tight tracking-tight text-ink mb-3">
             Everything on Wishly AI
           </h1>
-          <p className="text-muted-foreground text-base max-w-xl">
+          <p className="text-mid text-base max-w-xl">
             A complete list of all pages and articles on wishlyai.in — find what you're looking for quickly.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:gap-14">
+        <div className="grid gap-12">
           {/* Main Pages */}
           <section>
-            <h2 className="flex items-center gap-2 text-lg font-bold text-primary-foreground mb-5 pb-2 border-b border-white/10">
+            <h2 className="font-display flex items-center gap-2.5 text-xl font-bold text-ink mb-5 pb-3 border-b border-border">
               <span className="h-5 w-1 rounded-full bg-orange inline-block" />
               Main Pages
             </h2>
@@ -68,14 +68,14 @@ const Sitemap = () => {
                 <Link
                   key={href}
                   to={href}
-                  className="group flex items-start gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3.5 hover:border-orange/30 hover:bg-orange/5 transition-all duration-200"
+                  className="group flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-4 hover:border-orange/50 hover:shadow-sm transition-all duration-200"
                 >
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange/10 text-orange group-hover:bg-orange/20 transition-colors">
-                    <Icon size={15} />
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-light text-orange group-hover:bg-orange group-hover:text-white transition-all">
+                    <Icon size={16} />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-primary-foreground group-hover:text-orange transition-colors">{label}</span>
-                    <span className="block text-xs text-muted-foreground mt-0.5">{desc}</span>
+                    <span className="block text-sm font-semibold text-ink group-hover:text-orange transition-colors">{label}</span>
+                    <span className="block text-xs text-mid mt-0.5 leading-relaxed">{desc}</span>
                   </span>
                 </Link>
               ))}
@@ -84,7 +84,7 @@ const Sitemap = () => {
 
           {/* Company */}
           <section>
-            <h2 className="flex items-center gap-2 text-lg font-bold text-primary-foreground mb-5 pb-2 border-b border-white/10">
+            <h2 className="font-display flex items-center gap-2.5 text-xl font-bold text-ink mb-5 pb-3 border-b border-border">
               <span className="h-5 w-1 rounded-full bg-orange inline-block" />
               Company
             </h2>
@@ -93,14 +93,14 @@ const Sitemap = () => {
                 <Link
                   key={href}
                   to={href}
-                  className="group flex items-start gap-3 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3.5 hover:border-orange/30 hover:bg-orange/5 transition-all duration-200"
+                  className="group flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-4 hover:border-orange/50 hover:shadow-sm transition-all duration-200"
                 >
-                  <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange/10 text-orange group-hover:bg-orange/20 transition-colors">
-                    <Icon size={15} />
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-light text-orange group-hover:bg-orange group-hover:text-white transition-all">
+                    <Icon size={16} />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-primary-foreground group-hover:text-orange transition-colors">{label}</span>
-                    <span className="block text-xs text-muted-foreground mt-0.5">{desc}</span>
+                    <span className="block text-sm font-semibold text-ink group-hover:text-orange transition-colors">{label}</span>
+                    <span className="block text-xs text-mid mt-0.5 leading-relaxed">{desc}</span>
                   </span>
                 </Link>
               ))}
@@ -109,7 +109,7 @@ const Sitemap = () => {
 
           {/* Blog */}
           <section>
-            <h2 className="flex items-center gap-2 text-lg font-bold text-primary-foreground mb-5 pb-2 border-b border-white/10">
+            <h2 className="font-display flex items-center gap-2.5 text-xl font-bold text-ink mb-5 pb-3 border-b border-border">
               <span className="h-5 w-1 rounded-full bg-orange inline-block" />
               Blog & Articles
               <span className="ml-auto text-xs font-normal text-muted-foreground">{allPosts.length} articles</span>
@@ -118,31 +118,31 @@ const Sitemap = () => {
             {/* Blog index link */}
             <Link
               to="/blogs"
-              className="group mb-6 flex items-center gap-3 rounded-xl border border-orange/20 bg-orange/5 px-4 py-3.5 hover:bg-orange/10 transition-all duration-200 w-fit"
+              className="group mb-8 inline-flex items-center gap-3 rounded-xl border border-orange/40 bg-orange-light px-5 py-3.5 hover:bg-orange hover:border-orange transition-all duration-200"
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange/20 text-orange">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange/20 text-orange group-hover:bg-white/20 group-hover:text-white transition-all">
                 <BookOpen size={15} />
               </span>
               <span>
-                <span className="block text-sm font-semibold text-primary-foreground group-hover:text-orange transition-colors">All Blog Posts</span>
-                <span className="block text-xs text-muted-foreground">Browse the complete article library</span>
+                <span className="block text-sm font-semibold text-ink group-hover:text-white transition-colors">All Blog Posts</span>
+                <span className="block text-xs text-mid group-hover:text-white/80 transition-colors">Browse the complete article library</span>
               </span>
             </Link>
 
-            {/* Posts by category */}
-            <div className="grid gap-8 lg:grid-cols-2">
+            {/* Posts grouped by category */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {Object.entries(postsByCategory).map(([category, posts]) => (
-                <div key={category}>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-orange/80 mb-3">{category}</h3>
-                  <ul className="space-y-2">
+                <div key={category} className="rounded-xl border border-border bg-white p-5">
+                  <h3 className="text-[11px] font-bold uppercase tracking-widest text-orange mb-4 pb-2 border-b border-border">{category}</h3>
+                  <ul className="space-y-2.5">
                     {posts.map((post) => (
                       <li key={post.slug}>
                         <Link
                           to={`/blogs/${post.slug}`}
-                          className="group flex items-baseline gap-2 text-sm text-muted-foreground hover:text-primary-foreground transition-colors"
+                          className="group flex items-start gap-2 text-sm text-mid hover:text-ink transition-colors"
                         >
-                          <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-orange/40 group-hover:bg-orange transition-colors" />
-                          <span className="group-hover:underline underline-offset-2">{post.title}</span>
+                          <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-orange/40 group-hover:bg-orange transition-colors" />
+                          <span className="group-hover:underline underline-offset-2 leading-snug">{post.title}</span>
                         </Link>
                       </li>
                     ))}
